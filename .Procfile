@@ -1,1 +1,1 @@
-web: gunicorn helloworldjethro.wsgi
+web: gunicorn helloworldjethro.wsgi --log-file -
