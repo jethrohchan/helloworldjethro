@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 # READ THIS: https://medium.com/@BennettGarner/deploying-django-to-heroku-connecting-heroku-postgres-fcc960d290d1
 import os
+import sys
 import dj_database_url
 import django_heroku
 import dotenv
@@ -82,6 +83,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'helloworldjethro.wsgi.application'
 
+
+LOGGING = {
+    'handlers': {
+        'console': {
+            'class': 'logging:StreamHandler',
+            'stream': sys.stdout,
+        },
+     },
+}
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases

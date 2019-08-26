@@ -1,5 +1,9 @@
+
+import logging
 from django.shortcuts import render
 from .models import Counter
+
+logger = logging.getLogger(__name__)
 
 def counter_home(request):
     # increment counter here per visit and save it back into db
@@ -8,6 +12,5 @@ def counter_home(request):
     counter, created = Counter.objects.get_or_create(id=1)
     counter.visits += 1
     counter.save()
-    print(counter.visits)
-    print(counter.pk)
-    return render(request, 'counter/counter_home.html', {'views': counter.visits })
+    logger.info('This page was visited %s times' % counter.visits)
+    return render(request, 'counter/counter_home.html', {'visits': counter.visits })
