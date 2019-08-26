@@ -1,0 +1,5 @@
+<html>
+<body>
+    <p>Hi there! You are the {{ visits }} visitor</p>
+</body>
+</html>

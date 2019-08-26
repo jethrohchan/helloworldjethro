@@ -8,4 +8,6 @@ def counter_home(request):
     counter, created = Counter.objects.get_or_create(id=1)
     counter.visits += 1
     counter.save()
-    return render(request, 'counter/counter_home.html', {'visits': counter.visits })
+    print(counter.visits)
+    print(counter.pk)
+    return render(request, 'counter/counter_home.html', {'views': counter.visits })
