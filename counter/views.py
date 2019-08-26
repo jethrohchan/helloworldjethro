@@ -13,6 +13,7 @@ def counter_home(request):
         counter, created = Counter.objects.get_or_create(id=1)
         counter.visits += 1
         counter.save()
+        logger.info('TESTING')
         logger.info('This page was visited %s times' % counter.visits)
         return render(request, 'counter/counter_home.html', {'visits': counter.visits })
     except Exception as e:
