@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+# READ THIS: https://medium.com/@BennettGarner/deploying-django-to-heroku-connecting-heroku-postgres-fcc960d290d1
 import os
 import dj_database_url
 import django_heroku
@@ -17,6 +18,13 @@ import dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# NEW DB CONFIGS                                                                                                                             
+# Below we don't checkin .env into git so if won't get entered in Heroku                                                                     # That way we can run sqllite locally, and postgres in Heroku                                                                                
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -140,11 +148,3 @@ STATICFILES_DIRS = (
 )
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# NEW DB CONFIGS
-# Below we don't checkin .env into git so if won't get entered in Heroku
-# That way we can run sqllite locally, and postgres in Heroku
-dotenv_file = os.path.join(BASE_DIR, ".env")
-if os.path.isfile(dotenv_file):
-    dotenv.load_dotenv(dotenv_file)
-
