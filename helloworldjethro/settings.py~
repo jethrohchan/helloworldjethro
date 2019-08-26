@@ -91,7 +91,7 @@ LOGGING = {
     'handlers': {
         'console': {
             'level': 'INFO',
-            'class': 'logging:StreamHandler',
+            'class': 'logging.StreamHandler',
             'stream': sys.stdout,
         },
      },
