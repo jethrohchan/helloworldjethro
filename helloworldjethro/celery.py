@@ -3,6 +3,7 @@ import os
 from celery import Celery
 from django.conf import settings
 from celery.schedules import crontab
+from counter import add_runtimes
 
 # set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'helloworldjethro.settings')
@@ -16,9 +17,9 @@ def debug_task(self):
     print('Request: {0!r}'.format(self.request))
 
 # Celery Beat Stuff
-#app.conf.beat_schedule = {
-#    'add_runtimes': {
-#        'task': 'add_runtimes',
-#        'schedule': 5.0
-#     },
-#}
+app.conf.beat_schedule = {
+    'add_runtimes': {
+        'task': 'add_runtimes',
+        'schedule': 5.0
+     },
+}
