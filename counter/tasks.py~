@@ -13,11 +13,22 @@ logger = logging.getLogger(__name__)
 @task(name="increment")
 def increment():
     # increment counter here per visit and save it back into db
-    logger.info('Calling Async')
+    logger.info('Calling Async Increment')
     try:
         counter, created = Counter.objects.get_or_create(id=1)
         counter.visits += 1
         counter.save()
-        logger.info('Incrementing Async to' % counter.visits)
+        logger.info('Incrementing Async to ${0}'.format(counter.visits))
+    except Exception as e:
+        logger.critical(e)
+
+@task(name="auto_runtime")
+def auto_runtime():
+    logger.info('Calling Auto Runtime')
+    try:
+        counter, created = Counter.objects.get_or_create(id=1)
+        counter.runtimes += 1
+        counter.save()
+        logger.info('Auto Runtime to ${0}'.format(counter.visits))
     except Exception as e:
         logger.critical(e)

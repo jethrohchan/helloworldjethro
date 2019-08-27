@@ -12,7 +12,7 @@ def counter_home(request):
     try:
         increment.delay()
         counter, created = Counter.objects.get_or_create(id=1)
-        return render(request, 'counter/counter_home.html', {'visits': counter.visits })
+        return render(request, 'counter/counter_home.html', {'visits': counter.visits, 'runtimes': counter.runtimes })
     except Exception as e:
         logger.critical(e)
-        return render(request, 'counter/counter_home.html', {'visits': 'ERROR' })
+        return render(request, 'counter/counter_home.html', {'visits': 'ERROR', 'runtimes': 'ERROR' })

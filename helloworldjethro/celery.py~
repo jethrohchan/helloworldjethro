@@ -5,7 +5,6 @@ from django.conf import settings
 
 # set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'helloworldjethro.settings')
-# app = Celery('counter')
 app = Celery('helloworldjethro')
 
 app.config_from_object('django.conf:settings')

@@ -3,3 +3,5 @@ web: gunicorn helloworldjethro.wsgi --log-file -
 # worker: celery worker --app=counter.app  --loglevel=info
 # worker: celery worker --app=helloworldjethro.app  --loglevel=info
 worker: celery -A helloworldjethro worker
+beat: celery -A helloworldjethro beat -S django
+# beat: celery -A helloworldjethro beat

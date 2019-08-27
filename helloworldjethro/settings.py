@@ -15,6 +15,7 @@ import os
 import sys
 import dj_database_url
 import django_heroku
+import django_celery_beat
 import dotenv
 import logging
 
@@ -54,6 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'counter',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
