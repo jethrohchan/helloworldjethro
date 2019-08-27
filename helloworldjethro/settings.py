@@ -24,9 +24,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # NEW DB CONFIGS                                                                                                                             
 # Below we don't checkin .env into git so if won't get entered in Heroku                                                                     # That way we can run sqllite locally, and postgres in Heroku                                                                                
 dotenv_file = os.path.join(BASE_DIR, ".env")
+
+REDIS_URL = os.environ.get('REDIS_URL')
 if os.path.isfile(dotenv_file):
     dotenv.load_dotenv(dotenv_file)
-REDIS_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
+    REDIS_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
 
 
 # Quick-start development settings - unsuitable for production
