@@ -177,7 +177,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # CELERY STUFF
-BROKER_URL = 'redis://localhost:6379'
+BROKER_URL = os.getenv('REDISTOGO_URL', 'redis://localhost:6379')
+# BROKER_URL = 'redis://localhost:6379'
 # CELERY_RESULT_BACKEND = 'redis' # FOR LOCAL USE
 CELERY_RESULT_BACKEND = REDIS_URL
 CELERY_ACCEPT_CONTENT = ['application/json']
