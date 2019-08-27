@@ -16,9 +16,9 @@ def debug_task(self):
     print('Request: {0!r}'.format(self.request))
 
 # Celery Beat Stuff
-app.conf.beat_schedule = {
-    'add_runtimes': {
-        'task': 'add_runtimes',
-        'schedule': 5.0
-     },
-}
+#app.conf.beat_schedule = {
+#    'add_runtimes': {
+#        'task': 'add_runtimes',
+#        'schedule': 5.0
+#     },
+#}
