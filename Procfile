@@ -1,2 +1,2 @@
 web: gunicorn helloworldjethro.wsgi --log-file -
-worker: celery worker --app=tasks.app
+worker: celery -A helloworldjethro worker -B --loglevel=info
