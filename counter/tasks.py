@@ -6,6 +6,8 @@ from celery.decorators import task
 from celery.utils.log import get_task_logger
 from .models import Counter
 from django.conf import settings
+from celery import shared_task
+
 
 logger = logging.getLogger(__name__)
 

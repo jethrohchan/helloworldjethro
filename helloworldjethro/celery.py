@@ -3,6 +3,7 @@ import os
 from celery import Celery
 from django.conf import settings
 from celery.schedules import crontab
+from celery import shared_task
 # from counter import add_runtimes
 
 # set the default Django settings module for the 'celery' program.
