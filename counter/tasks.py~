@@ -22,8 +22,7 @@ def increment():
     except Exception as e:
         logger.critical(e)
 
-# @task(name="auto_runtime")
-@shared_task
+@task(name="auto_runtime")
 def auto_runtime():
     logger.info('Calling Auto Runtime')
     try:
