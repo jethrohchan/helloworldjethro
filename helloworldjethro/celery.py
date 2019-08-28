@@ -4,7 +4,7 @@ from celery import Celery
 from django.conf import settings
 from celery.schedules import crontab
 from celery import shared_task
-# from counter import add_runtimes
+# from counter import add_runtime
 
 # set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'helloworldjethro.settings')
@@ -20,7 +20,7 @@ def debug_task(self):
 # Celery Beat Stuff
 app.conf.beat_schedule = {
     'called-every-5-seconds': {
-        'task': 'helloworldjethro.counter.tasks.auto_runtimes',
+        'task': 'helloworldjethro.counter.tasks.auto_runtime',
         'schedule': 5.0
      },
 }
