@@ -20,7 +20,7 @@ def debug_task(self):
 # Celery Beat Stuff
 app.conf.beat_schedule = {
     'called-every-5-seconds': {
-        'task': 'counter.tasks.auto_runtimes',
+        'task': 'helloworldjethro.counter.tasks.auto_runtimes',
         'schedule': 5.0
      },
 }
